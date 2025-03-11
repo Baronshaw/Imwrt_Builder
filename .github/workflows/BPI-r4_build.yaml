@@ -69,7 +69,7 @@ jobs:
           restore-keys: toolchain-${{ runner.os }}
 
       - name: Build the firmware image
-        run: make -j$(($(nproc)+1)) world
+        run: make -j1
 
       - name: Update host packages and toolchain cache
         uses: actions/cache/save@v4
