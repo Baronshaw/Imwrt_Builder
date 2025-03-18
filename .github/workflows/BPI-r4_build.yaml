@@ -8,7 +8,7 @@ on:
 
 env:
   REMOTE_REPOSITORY: Baronshaw/immortalwrt
-  REMOTE_BRANCH: v24.10.0-r1
+  REMOTE_BRANCH: v24.10.0-p2
   CONFIG_FILE: bpi-r4.config
   RELEASE_PREFIX: Mediatek_mt7988a_bpi-r4
 
@@ -75,7 +75,7 @@ jobs:
           restore-keys: toolchain-${{ runner.os }}
 
       - name: Build the firmware image
-        run: make -j1
+        run: make -j $(nproc)
 
       - name: Update host packages and toolchain cache
         uses: actions/cache/save@v4
